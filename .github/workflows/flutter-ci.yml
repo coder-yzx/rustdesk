@@ -17,6 +17,8 @@ on:
       - "appimage/**"
       - "flatpak/**"
 
+permissions: write-all
+
 jobs:
   run-ci:
     uses: ./.github/workflows/flutter-build.yml
