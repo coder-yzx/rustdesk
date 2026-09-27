@@ -1,10 +1,9 @@
 name: Flutter Nightly Build
 
 on:
-  schedule:
-    # schedule build every night
-    - cron: "0 0 * * *"
   workflow_dispatch:
+#  schedule trigger disabled by local admin: no auto packaging.
+#  Re-add "- cron: '0 0 * * *'" under "schedule:" to restore nightly builds.
 
 jobs:
   run-flutter-nightly-build:

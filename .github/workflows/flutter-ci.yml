@@ -2,20 +2,8 @@ name: Full Flutter CI
 
 on:
   workflow_dispatch:
-  pull_request:
-    paths-ignore:
-    - "docs/**"
-    - "README.md"
-  push:
-    branches:
-      - master
-    paths-ignore:
-      - ".github/**"
-      - "docs/**"
-      - "README.md"
-      - "res/**"
-      - "appimage/**"
-      - "flatpak/**"
+#  push/pull_request triggers disabled by local admin: no auto packaging.
+#  Re-add "push: branches: [master]" to restore automatic builds.
 
 permissions: write-all
 
