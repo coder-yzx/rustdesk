@@ -11,9 +11,9 @@ name: Update webpki-roots
 # branch, to run CI on it.
 
 on:
-  schedule:
-    - cron: "0 3 * * 1"
   workflow_dispatch:
+#  schedule trigger disabled by local admin: no auto packaging.
+#  Re-add "- cron: '0 3 * * 1'" under "schedule:" to restore weekly refresh.
 
 # A manual dispatch overlapping the weekly run would race it force-pushing
 # the same branch; queue instead of overlapping, and never cancel a run

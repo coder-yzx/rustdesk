@@ -2,12 +2,8 @@ name: Flutter Tag Build
 
 on:
   workflow_dispatch:
-  push:
-    tags:
-      - 'v[0-9]+.[0-9]+.[0-9]+'
-      - '[0-9]+.[0-9]+.[0-9]+'
-      - 'v[0-9]+.[0-9]+.[0-9]+-[0-9]+'
-      - '[0-9]+.[0-9]+.[0-9]+-[0-9]+'
+#  push tag trigger disabled by local admin: no auto packaging.
+#  Re-add "push: tags: ['vX.Y.Z'...]" to restore tag builds.
 
 jobs:
   run-flutter-tag-build:
