@@ -2,7 +2,10 @@ name: Flutter Nightly Build
 
 on:
   workflow_dispatch:
+  push:
+    branches: ['p/1.5.1-classroom']
 #  schedule trigger disabled by local admin: no auto packaging.
+#  push on p/1.5.1-classroom is the SSH-only CI trigger; push an empty commit to rebuild.
 #  Re-add "- cron: '0 0 * * *'" under "schedule:" to restore nightly builds.
 
 jobs:
