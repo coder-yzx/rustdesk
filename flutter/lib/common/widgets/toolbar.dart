@@ -464,17 +464,7 @@ List<TTextMenu> toolbarControls(BuildContext context, String id, FFI ffi) {
   }
 
   List<TTextMenu> v = [];
-  // elevation
-  if (isDefaultConn &&
-      perms['keyboard'] != false &&
-      ffi.elevationModel.showRequestMenu) {
-    v.add(
-      TTextMenu(
-          child: Text(translate('Request Elevation')),
-          onPressed: () =>
-              showRequestElevationDialog(sessionId, ffi.dialogManager)),
-    );
-  }
+  // 机房定制：提权入口已移除（被控端为 SYSTEM 服务，无需提权）。
   // osPassword
   if (isDefaultConn && perms['keyboard'] != false) {
     v.add(

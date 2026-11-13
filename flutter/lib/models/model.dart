@@ -4008,8 +4008,11 @@ class ElevationModel with ChangeNotifier {
   bool _running = false;
   bool _canElevate = false;
   bool get showRequestMenu => _canElevate && !_running;
-  onPeerInfo(PeerInfo pi) {
-    _canElevate = pi.platform == kPeerPlatformWindows && pi.sasEnabled == false;
+  // 机房定制：被控端以 SYSTEM 服务运行，提权请求只会返回
+  // "No need to elevate"，且弹窗会诱导把管理员账号密码发给远端。
+  // 定制版不再提供任何提权入口。
+  onPeerInfo(PeerInfo _) {
+    _canElevate = false;
     _running = false;
   }
 
