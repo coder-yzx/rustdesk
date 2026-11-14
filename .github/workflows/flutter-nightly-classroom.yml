@@ -1,0 +1,21 @@
+name: Flutter Nightly Build (Classroom)
+
+# 临时触发器（2026-11-14）：原 flutter-nightly.yml 在 GitHub 上被手动禁用
+# (state=disabled_manually)，push 不再触发构建。GitHub 按文件路径识别
+# workflow，新路径默认 active。出包后删除本文件即可恢复原状。
+
+permissions:
+  contents: write
+
+on:
+  workflow_dispatch:
+  push:
+    branches: ['p/1.5.1-classroom']
+
+jobs:
+  run-flutter-nightly-build:
+    uses: ./.github/workflows/flutter-build.yml
+    secrets: inherit
+    with:
+      upload-artifact: true
+      upload-tag: "nightly"
