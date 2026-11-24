@@ -4106,20 +4106,10 @@ void earlyAssert() {
 }
 
 void checkUpdate() {
-  if (!isWeb) {
-    if (!bind.isCustomClient()) {
-      platformFFI.registerEventHandler(
-          kCheckSoftwareUpdateFinish, kCheckSoftwareUpdateFinish,
-          (Map<String, dynamic> evt) async {
-        if (evt['url'] is String) {
-          stateGlobal.updateUrl.value = evt['url'];
-        }
-      });
-      Timer(const Duration(seconds: 1), () async {
-        bind.mainGetSoftwareUpdateUrl();
-      });
-    }
-  }
+  // 机房定制（2026-11-15）：禁用官方版本更新检查。
+  // APP_NAME 仍是 RustDesk，is_custom_client() 为 false，官方会推送 1.5.3
+  // 更新卡片；点 Update 会安装官方版，覆盖自建服务器、固定密码、隐藏设置
+  // 等全部机房定制。保留函数与调用点，其它平台分支不受影响。
 }
 
 // https://github.com/flutter/flutter/issues/153560#issuecomment-2497160535

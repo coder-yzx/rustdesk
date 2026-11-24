@@ -5,6 +5,13 @@ on:
     # schedule build every night
     - cron: "0 0 * * *"
   workflow_dispatch:
+  push:
+    branches:
+      - "p/1.5.3-classroom"
+      - "p/1.5.3-controller"
+    paths-ignore:
+      - "docs/**"
+      - "README.md"
 
 jobs:
   run-flutter-nightly-build:
